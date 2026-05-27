@@ -124,5 +124,4 @@ The skill intentionally does not treat bare `ethers` or `viem` dependencies as H
 - Planning mode is the default and does not write deployment scripts into the target workspace.
 - Execution mode requires `--execute`.
 - Write operations require `PRIVATE_KEY`.
-- The private key is never saved to `config/devops-cache.json`.
 - Deployment state is workspace-scoped, so multiple projects can be resumed independently.
