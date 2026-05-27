@@ -34,7 +34,7 @@ python3 ai-devops-engineer/main.py run \
   --contract Counter \
   --verify \
   --execute \
-  --sync-env-key NEXT_PUBLIC_COUNTER_ADDRESS \
+  --sync-env-key COUNTER_ADDRESS \
   --create-missing-env \
   --smoke-method increment
 ```

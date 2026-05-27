@@ -12,6 +12,7 @@ Smart-contract developers usually jump between their editor, terminal, block exp
 - Infers the contract from a prompt like `deploy my counter contract`.
 - Uses local artifacts to recover ABI, bytecode, and constructor inputs.
 - Records resumable state in `config/devops-cache.json`.
+- Automatically derives a neutral env key such as `COUNTER_ADDRESS` when no sync key is provided.
 - Avoids storing or printing private keys.
 - Supports Foundry directly and Hardhat projects using official ethers or viem plugins.
 
@@ -80,7 +81,6 @@ python3 ai-devops-engineer/main.py run \
   --intent "deploy and verify my counter contract" \
   --contract Counter \
   --verify \
-  --sync-env-key NEXT_PUBLIC_COUNTER_ADDRESS \
   --smoke-method increment
 ```
 
@@ -95,10 +95,11 @@ python3 ai-devops-engineer/main.py run \
   --contract Counter \
   --verify \
   --execute \
-  --sync-env-key NEXT_PUBLIC_COUNTER_ADDRESS \
   --create-missing-env \
   --smoke-method increment
 ```
+
+By default, the skill syncs the deployed address into an env key derived from the contract name. For `Counter`, that key is `COUNTER_ADDRESS`. Override it with `--sync-env-key`, or disable automatic env sync with `--no-auto-sync-env`.
 
 If a step fails or verification needs a retry:
 

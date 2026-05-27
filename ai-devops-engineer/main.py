@@ -968,6 +968,12 @@ def sync_address(workspace: Path, address: str, env_key: str, extra_paths: Optio
     return updated
 
 
+def default_env_key(contract_name: str) -> str:
+    words = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", contract_name).upper()
+    words = re.sub(r"[^A-Z0-9]+", "_", words).strip("_")
+    return f"{words}_ADDRESS"
+
+
 def smoke_test_plan(contract: Dict[str, Any], deployed_address: Optional[str], method: Optional[str], args: List[str], execute: bool, workspace: Path) -> Dict[str, Any]:
     if not deployed_address:
         return {"mode": "blocked", "ok": False, "reason": "missing_deployed_address"}
@@ -1170,6 +1176,8 @@ def apply_pipeline(project: ProjectInfo, run_state: Dict[str, Any], execute: boo
         run_state["steps"]["verified"] = is_completed(verify_result)
 
     sync_env_key = options.get("syncEnvKey")
+    if not sync_env_key and options.get("autoSyncEnv", True):
+        sync_env_key = default_env_key(run_state["contract"]["contractName"])
     if sync_env_key and not run_state["steps"]["synced"]:
         if execute and run_state.get("deployedAddress"):
             updates = sync_address(
@@ -1225,6 +1233,7 @@ def build_options(args: argparse.Namespace) -> Dict[str, Any]:
         "constructorArgs": parse_arg_list(getattr(args, "constructor_arg", None), getattr(args, "constructor_args", None)),
         "verifyRequested": bool(getattr(args, "verify", False) or "verify" in (getattr(args, "intent", "") or "").lower()),
         "syncEnvKey": getattr(args, "sync_env_key", None),
+        "autoSyncEnv": not bool(getattr(args, "no_auto_sync_env", False)),
         "syncPaths": getattr(args, "sync_path", None) or [],
         "createMissingEnv": bool(getattr(args, "create_missing_env", False)),
         "smokeMethod": getattr(args, "smoke_method", None),
@@ -1306,6 +1315,7 @@ def parser() -> argparse.ArgumentParser:
     run.add_argument("--execute", action="store_true")
     run.add_argument("--address")
     run.add_argument("--sync-env-key")
+    run.add_argument("--no-auto-sync-env", action="store_true")
     run.add_argument("--sync-path", action="append")
     run.add_argument("--create-missing-env", action="store_true")
     run.add_argument("--smoke-method")

@@ -58,6 +58,11 @@ This skill is self-contained:
 8. Optionally run a smoke test call or write transaction.
 9. Save every step into `config/devops-cache.json` so `resume` can continue cleanly.
 
+If the user does not provide an env key, derive one from the selected contract name. For example,
+`Counter` becomes `COUNTER_ADDRESS` and `StakingVault` becomes
+`STAKING_VAULT_ADDRESS`. Allow explicit `--sync-env-key` values to override this
+default, and allow `--no-auto-sync-env` when the user does not want local env writes.
+
 ## Safety Rules
 
 - Never expose the private key in logs or saved state.
@@ -108,7 +113,7 @@ Sync a deployed address into env files:
 python3 main.py sync \
   --workspace /path/to/project \
   --address 0x1234567890abcdef1234567890abcdef12345678 \
-  --env-key NEXT_PUBLIC_STAKING_VAULT_ADDRESS \
+  --env-key STAKING_VAULT_ADDRESS \
   --create-missing-env
 ```
 

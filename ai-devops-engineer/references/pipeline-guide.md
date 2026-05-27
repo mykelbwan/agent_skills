@@ -89,10 +89,17 @@ Updates local files by key replacement or append:
 
 - existing `.env`
 - existing `.env.local`
-- frontend env keys like `NEXT_PUBLIC_*`
+- contract env keys like `COUNTER_ADDRESS`
 - optional custom paths
 
 Use `--create-missing-env` if the skill should create missing env files.
+
+If `--sync-env-key` is omitted, the skill derives a key from the contract name:
+
+- `Counter` -> `COUNTER_ADDRESS`
+- `StakingVault` -> `STAKING_VAULT_ADDRESS`
+
+Use `--no-auto-sync-env` to disable this default.
 
 ### Smoke Test
 
@@ -119,4 +126,4 @@ Supports:
 
 ## Recommended Demo Prompt
 
-`Deploy and test my local VestingVault contract on Pharos Atlantic testnet, verify it, update NEXT_PUBLIC_VESTING_VAULT_ADDRESS, and save enough state so I can resume if verification fails.`
+`Deploy and test my local VestingVault contract on Pharos Atlantic testnet, verify it, update VESTING_VAULT_ADDRESS, and save enough state so I can resume if verification fails.`
