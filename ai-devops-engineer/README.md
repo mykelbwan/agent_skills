@@ -126,8 +126,3 @@ The skill intentionally does not treat bare `ethers` or `viem` dependencies as H
 - Write operations require `PRIVATE_KEY`.
 - The private key is never saved to `config/devops-cache.json`.
 - Deployment state is workspace-scoped, so multiple projects can be resumed independently.
-
-## Demo Assets
-
-Use `references/demo-guide.md` for the recording script and screenshots checklist.
-Use `SUBMISSION.md` as the Discord submission template.
