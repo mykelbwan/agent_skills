@@ -1,0 +1,39 @@
+{
+  "rpcUrl": "https://atlantic.dplabs-internal.com",
+  "contractAddress": "0x2222222222222222222222222222222222222222",
+  "fromBlock": 22800000,
+  "toBlock": 22801000,
+  "blockChunkSize": 2000,
+  "maxBlockSpan": 100000,
+  "requestChunkSize": 100,
+  "interactionCountMode": "unique_logs",
+  "eventFilter": {
+    "topic0": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+  },
+  "addressSources": [
+    {
+      "type": "topic",
+      "index": 1,
+      "label": "sender"
+    },
+    {
+      "type": "topic",
+      "index": 2,
+      "label": "recipient"
+    }
+  ],
+  "qualification": {
+    "minInteractions": 3,
+    "balanceCheck": {
+      "type": "erc20",
+      "tokenAddress": "0x3333333333333333333333333333333333333333",
+      "minBalanceWei": "5000000000000000000"
+    }
+  },
+  "airdrop": {
+    "amountWei": "250000000000000000"
+  },
+  "excludeAddresses": [
+    "0x0000000000000000000000000000000000000000"
+  ]
+}
