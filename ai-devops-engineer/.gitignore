@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.py[cod]
+
+cache/
+out/
+broadcast/
+artifacts/
+node_modules/
+typechain-types/
+
+config/devops-cache.local.json
+
+*.log

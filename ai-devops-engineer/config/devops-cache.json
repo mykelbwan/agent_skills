@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "network": {
+    "name": "atlantic-testnet",
+    "rpcUrl": "https://atlantic.dplabs-internal.com",
+    "chainId": 688689,
+    "explorerUrl": "https://atlantic.pharosscan.xyz/",
+    "explorerApiUrl": "https://api.socialscan.io/pharos-atlantic-testnet",
+    "nativeToken": "PHRS"
+  },
+  "lastWorkspace": null,
+  "runs": {}
+}
