@@ -1,0 +1,16 @@
+{
+  "network": "atlantic-testnet",
+  "rpcUrl": "https://atlantic.dplabs-internal.com",
+  "explorerUrl": "https://atlantic.pharosscan.xyz/",
+  "contractAddress": "0x0000000000000000000000000000000000000000",
+  "walletAddress": null,
+  "fromBlock": 1,
+  "toBlock": "latest",
+  "mode": "combined",
+  "blockChunkSize": 500,
+  "selectorLabels": {
+    "0x60fe47b1": "setNumber(uint256)",
+    "0xd09de08a": "increment()"
+  },
+  "eventLabels": {}
+}
