@@ -1,0 +1,86 @@
+{
+  "network": "atlantic-testnet",
+  "rpcUrl": "fixture://protocol-recorder-demo",
+  "explorerUrl": "https://atlantic.pharosscan.xyz/",
+  "contractAddress": "0x9999999999999999999999999999999999999999",
+  "walletAddress": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "fromBlock": 200,
+  "toBlock": 205,
+  "mode": "combined",
+  "blockChunkSize": 500,
+  "selectorLabels": {
+    "0x60fe47b1": "setNumber(uint256)",
+    "0xd09de08a": "increment()"
+  },
+  "eventLabels": {
+    "0x1111111111111111111111111111111111111111111111111111111111111111": "NumberChanged(address,uint256)",
+    "0x2222222222222222222222222222222222222222222222222222222222222222": "Incremented(address,uint256)"
+  },
+  "fixture": {
+    "latestBlock": 205,
+    "transactions": [
+      {
+        "blockNumber": "0xc8",
+        "timestamp": "0x65a0bc00",
+        "hash": "0xaaaaaaaa00000000000000000000000000000000000000000000000000000001",
+        "from": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "to": "0x9999999999999999999999999999999999999999",
+        "value": "0x0",
+        "input": "0x60fe47b1000000000000000000000000000000000000000000000000000000000000002a"
+      },
+      {
+        "blockNumber": "0xca",
+        "timestamp": "0x65a0bc3c",
+        "hash": "0xaaaaaaaa00000000000000000000000000000000000000000000000000000002",
+        "from": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "to": "0x9999999999999999999999999999999999999999",
+        "value": "0x0",
+        "input": "0xd09de08a"
+      },
+      {
+        "blockNumber": "0xcb",
+        "timestamp": "0x65a0bc78",
+        "hash": "0xbbbbbbbb00000000000000000000000000000000000000000000000000000003",
+        "from": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "to": "0x9999999999999999999999999999999999999999",
+        "value": "0x0",
+        "input": "0xd09de08a"
+      }
+    ],
+    "logs": [
+      {
+        "blockNumber": "0xc8",
+        "transactionHash": "0xaaaaaaaa00000000000000000000000000000000000000000000000000000001",
+        "logIndex": "0x0",
+        "address": "0x9999999999999999999999999999999999999999",
+        "topics": [
+          "0x1111111111111111111111111111111111111111111111111111111111111111",
+          "0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000000000000000002a"
+      },
+      {
+        "blockNumber": "0xca",
+        "transactionHash": "0xaaaaaaaa00000000000000000000000000000000000000000000000000000002",
+        "logIndex": "0x0",
+        "address": "0x9999999999999999999999999999999999999999",
+        "topics": [
+          "0x2222222222222222222222222222222222222222222222222222222222222222",
+          "0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+      },
+      {
+        "blockNumber": "0xcb",
+        "transactionHash": "0xbbbbbbbb00000000000000000000000000000000000000000000000000000003",
+        "logIndex": "0x0",
+        "address": "0x9999999999999999999999999999999999999999",
+        "topics": [
+          "0x2222222222222222222222222222222222222222222222222222222222222222",
+          "0x000000000000000000000000bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+      }
+    ]
+  }
+}
